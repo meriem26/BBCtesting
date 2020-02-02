@@ -28,4 +28,9 @@ describe("BBC Home page", function() {
       '.top-story__wrapper.top-story--small-image'
     ).should("be.visible");
   });
+  it("It should contain section", () => {
+    cy.get(
+      'section:nth-child(1)'
+    ).should("be.visible");
+  });
 });
