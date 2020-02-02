@@ -28,9 +28,21 @@ describe("BBC Home page", function() {
       '.top-story__wrapper.top-story--small-image'
     ).should("be.visible");
   });
+  it("It should have an image in each story", () => {
+    cy.get(
+      '.top-story__wrapper.top-story--small-image'
+    ).should("be.visible");
+  });
   it("It should contain section", () => {
     cy.get(
       'section:nth-child(1)'
     ).should("be.visible");
+  });
+  it.only("It should contain an image for each story", () => {
+    cy.get(
+      '[data-bbc-asset-type="article"]'
+    ).each(($module)=>{
+      cy.wrap($module).find('.top-story__image').should('have.length',1)
+    });
   });
 });
