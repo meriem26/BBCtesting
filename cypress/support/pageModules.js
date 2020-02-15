@@ -8,5 +8,7 @@ export const TopStories = {
     cy.get(".uk-hero-promos-container > .hp-module__container"),
   firstMainStory: () => cy.get(".hp-bp-m-one-half"),
   secondMainStory: () => cy.get(".hp-bp-m-one-quarter.hp-ts--news"),
-  imageInEachStory: () => cy.get(".top-story__wrapper.top-story--small-image")
+  imageForEachTopStory: () =>
+    cy.get(".top-story__wrapper.top-story--small-image"),
+  imageForEachStory: () => cy.get('[data-bbc-asset-type="article"]')
 };

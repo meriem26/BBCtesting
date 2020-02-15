@@ -26,13 +26,13 @@ describe("BBC Home page", function() {
     TopStories.secondMainStory().should("be.visible");
   });
   it("It should contain an image in each story", () => {
-    TopStories.imageInEachStory().should("be.visible");
+    TopStories.imageForEachTopStory().should("be.visible");
   });
   it("It should contain section", () => {
     cy.get("section:nth-child(1)").should("be.visible");
   });
   it("It should contain an image for each story", () => {
-    cy.get('[data-bbc-asset-type="article"]').each($module => {
+   TopStories.imageForEachStory().each($module => {
       cy.wrap($module)
         .find(".top-story__image")
         .should("have.length", 1);
