@@ -1,48 +1,41 @@
+import { HomePage, TopStories } from "../../support/pageModules";
 describe("BBC Home page", function() {
   beforeEach(() => {
     cy.visit("/");
   });
   it("It should contain a title", () => {
-    cy.get(".hp-banner__text").should("contain.text", "Welcome to the BBC");
+    HomePage.getBanner().should("contain.text", "Welcome to the BBC");
   });
   it("It should contain a nav-bar", () => {
-    cy.get(".orb-nav-pri-container").should("be.visible");
+    HomePage.navBar().should("be.visible");
   });
   it("It should contain logo image of BBC ", () => {
-    cy.get(".orb-nav-blocks > a").should(
+    HomePage.logo().should(
       "have.css",
       "background-image",
       'none, url("https://nav.files.bbci.co.uk/orbit/1b2e292884201dd13064a9204e177864/img/blq-orbit-blocks_grey.svg")'
     );
   });
   it("It should load main top stories", () => {
-    cy.get(".uk-hero-promos-container > .hp-module__container").should(
-      "be.visible"
-    );
+    TopStories.mainTopStories().should("be.visible");
   });
   it("It should contain first main story", () => {
-    cy.get(".hp-bp-m-one-half").should("be.visible");
+    TopStories.firstMainStory().should("be.visible");
   });
   it("It should contain second main story", () => {
-    cy.get(
-      '.top-story__wrapper.top-story--small-image'
-    ).should("be.visible");
+    TopStories.secondMainStory().should("be.visible");
   });
-  it("It should have an image in each story", () => {
-    cy.get(
-      '.top-story__wrapper.top-story--small-image'
-    ).should("be.visible");
+  it("It should contain an image in each story", () => {
+    TopStories.imageInEachStory().should("be.visible");
   });
   it("It should contain section", () => {
-    cy.get(
-      'section:nth-child(1)'
-    ).should("be.visible");
+    cy.get("section:nth-child(1)").should("be.visible");
   });
-  it.only("It should contain an image for each story", () => {
-    cy.get(
-      '[data-bbc-asset-type="article"]'
-    ).each(($module)=>{
-      cy.wrap($module).find('.top-story__image').should('have.length',1)
+  it("It should contain an image for each story", () => {
+    cy.get('[data-bbc-asset-type="article"]').each($module => {
+      cy.wrap($module)
+        .find(".top-story__image")
+        .should("have.length", 1);
     });
   });
 });
