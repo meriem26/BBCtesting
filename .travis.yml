@@ -16,7 +16,7 @@ cache:
   
 install:
   - npm ci
-
+  - cypress install
 script:
   - npm run lint
   - npm run cypress:ci
