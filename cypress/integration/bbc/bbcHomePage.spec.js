@@ -32,7 +32,7 @@ describe("BBC Home page", function() {
     cy.get("section:nth-child(1)").should("be.visible");
   });
   it("It should contain an image for each story", () => {
-   TopStories.imageForEachStory().each($module => {
+    TopStories.imageForEachStory().each($module => {
       cy.wrap($module)
         .find(".top-story__image")
         .should("have.length", 1);
