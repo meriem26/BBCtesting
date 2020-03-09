@@ -1,4 +1,5 @@
 {
     "projectId": "BBC testing",
-    "baseUrl":"https://www.bbc.co.uk/"
+    "baseUrl":"https://www.bbc.co.uk/",
+    "chromeWebSecurity": false
 }
