@@ -8,7 +8,7 @@
     "cypress": "cypress open",
     "lint": "prettier --list-different \"**/*.js\"",
     "lint:fix": "prettier --write \"**/*.js\"",
-    "cypress:ci": "cypress run --record"
+    "cypress:ci": "cypress run"
 
   },
   "author": "",
